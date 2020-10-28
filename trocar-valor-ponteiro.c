@@ -7,18 +7,13 @@
 
 int main(void)
 {
-	/* Declarar e inicializar variaveis. Declarar ponteiros */
-	int v1 = 1, *p1;
-	float v2 = 2, *p2;
-	char v3 = '3', *p3;
+	/* Declarar e inicializar as variaveis. Declarar e inicializa os ponteiros */
+	int v1 = 1, *p1 = &v1;
+	float v2 = 2, *p2 = &v2;
+	char v3 = '3', *p3 = &v3;
 	
 	/* Imprimi os valores das variveis */
 	printf("Antigo: \nValor1 = %d // Valor2 = %f // Valor3 = %c \n", v1, v2, v3);
-	
-	/* Inicializa e atribui aos ponteiros o endereço das variaveis correspondentes */
-	p1 = &v1;
-	p2 = &v2;
-	p3 = &v3;
 	
 	/* Altera o valor das variaveis por meio dos ponteiros */
 	*p1 = 2;
