@@ -1,4 +1,4 @@
-#include "aluno.h" /* interface functions.h */
+#include "aluno.h" /* interface aluno.h */
 
 /* 
 	Aluno: Henrique Luiz Hartmann
