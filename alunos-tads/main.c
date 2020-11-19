@@ -1,4 +1,4 @@
-#include "functions.h"
+#include "aluno.h"
 
 /* 
 	Aluno: Henrique Luiz Hartmann
@@ -8,49 +8,45 @@
 int main (void)
 {
 	/* Declaração de variáveis */
-	Aluno *v;
-	int i, n;
-	Aluno *mp1;
+	Aluno *vet;
+	int qtd_alunos;
+	Aluno* alunoMaiorNota = (Aluno*) malloc(sizeof(Aluno));
+	Aluno* alunoMaiorMedia = (Aluno*) malloc(sizeof(Aluno));
+	Aluno* alunoMenorMedia = (Aluno*) malloc(sizeof(Aluno));
 	
-	/* Leitura do número de valores */
+	/* Atribuir o número de alunos */
 	printf("Deseja cadastrar quantos alunos? \n");
-	scanf("%d", &n);
+	scanf("%d", &qtd_alunos);
 	
-	/* Alocação dinâmica */
-	v = (Aluno*) malloc(n*sizeof(Aluno));
-	if (v==NULL)
-	{
-		printf("Memoria Insuficiente.\n");
-		return 1;
-	}
+	/* Alocação dinâmica do vetor */
+	vet = cria(qtd_alunos);
 	
-	/* Leitura dos valores */
-	for ( i = 0; i < n; i++ )
-	{
-		printf("Aluno: %d \n", i+1);
-		
-		printf("Digite o numero de matricula: \n");
-		scanf("%d", &v[i].matricula);
-		
-		printf("Digite o nome: (max 50 caracteres)\n");
-		scanf("%s", v[i].nome);
-		fflush(stdin);
-		
-		printf("Digite a nota da prova 1: \n");
-		scanf("%f", &v[i].p1);
-		
-		printf("Digite a nota da prova 2: \n");
-		scanf("%f", &v[i].p2);
-		
-		printf("Digite a nota da prova 3: \n");
-		scanf("%f", &v[i].p3);
-	}
+	/* Cadastro dos alunos no vetor */
+	cadastro(qtd_alunos, vet);
 	
-	mp1 = maiorNota(n, v);
-	printf("Melhor p1 = \n{\n Aluno: %d\n P1: %f\n}", mp1->matricula, mp1->p1);
+	/* Aluno com a maior nota da prova 1 */
+	maiorNota(qtd_alunos, vet, alunoMaiorNota);
+	printf("Melhor prova 1: \n Matricula: %d\n Aluno: %d\n Prova 1: %f\n", alunoMaiorNota->matricula, alunoMaiorNota->nome, alunoMaiorNota->p1);
+	printf("--------------------------\n");
+	
+	/* Aluno com a maior média */
+	maiorMedia (qtd_alunos, vet, alunoMaiorMedia);
+	printf("\nMaior media: \n Matricula: %d\n Aluno: %s\n Media: %f\n", alunoMaiorMedia->matricula, alunoMaiorMedia->nome, (alunoMaiorMedia->p1 + alunoMaiorMedia->p2 + alunoMaiorMedia->p3) / 3);
+	printf("--------------------------\n");
+	
+	/* Aluno com a menor média */
+	menorMedia (qtd_alunos, vet, alunoMenorMedia);
+	printf("\nMenor media: \n Matricula: %d\n Aluno: %s\n Media: %f\n", alunoMenorMedia->matricula, alunoMenorMedia->nome, (alunoMenorMedia->p1 + alunoMenorMedia->p2 + alunoMenorMedia->p3) / 3);
+	printf("--------------------------\n");
+	
+	/* Situação dos alunos */
+	situacaoAluno (qtd_alunos, vet);
 	
 	/* Libera memória */
-	free(v);
+	free(alunoMaiorNota);
+	free(alunoMaiorMedia);
+	free(alunoMenorMedia);
+	free(vet);
 	
 	/* Fim do programa */
 	return 0;
