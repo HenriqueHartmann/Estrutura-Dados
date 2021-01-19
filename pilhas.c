@@ -52,13 +52,14 @@ Pilha* push (Pilha* p, int v)
 	return novo;	
 }
 
-Pilha* pop (Pilha** p)
+int pop (Pilha** p)
 {
 	Pilha* primeiro = *p;
+	int r = primeiro->info;
 	*p = primeiro->prox;
 	free(primeiro);
 	
-	return *p;	
+	return r;
 }
 
 int main (void)
