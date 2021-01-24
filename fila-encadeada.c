@@ -29,7 +29,7 @@ void libera (Fila* f);
 // Função Main
 int main (void)
 {
-	Fila * f = cria();
+	Fila* f = cria();
 	f = insere(f, 1);
 	f = insere(f, 2);
 	f = insere(f, 3);
