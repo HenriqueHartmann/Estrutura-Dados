@@ -22,11 +22,15 @@ void verifica (char e[]);
 
 int main (void)
 {
-//	char e[] = "a+(b*c)-2-a";
-//	char e[] = "(a+b*(2-c)-2+a)*2";
-//	char e[] = "((a*b-(2+c) ";
-//	char e[] = "2*(3-a))";
+	char a[] = "a+(b*c)-2-a";
+	char b[] = "(a+b*(2-c)-2+a)*2";
+	char c[] = "((a*b-(2+c) ";
+	char d[] = "2*(3-a))";
 	char e[] = ")3+b*(2-c)(";
+	verifica (a);
+	verifica (b);
+	verifica (c);
+	verifica (d);
 	verifica (e);
 	
 	return 0;
@@ -72,7 +76,7 @@ int countPilha (Pilha* p)
 void verifica (char e[])
 {
 	Pilha* t = NULL;
-	int i;
+	int i = 0;
 	int p = 0;
 	while (e[i] != '\0')
 	{
@@ -80,7 +84,6 @@ void verifica (char e[])
 		{
 			t = push(t, '(');
 		}
-		printf("%c | count: %d | \n", e[i], countPilha(t));
 		if (e[i] == ')')
 		{
 			if (countPilha(t) > 0)
