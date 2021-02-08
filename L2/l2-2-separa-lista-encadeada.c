@@ -14,14 +14,14 @@ struct listaDup {
 
 typedef struct listaDup ListaDupla;
 
-// Protótipo das funções
+// ProtÃ³tipo das funÃ§Ãµes
 ListaDupla* insere (ListaDupla* l, int v);
 void imprime (ListaDupla* l);
 ListaDupla* busca (ListaDupla* l, int v);
 void libera (ListaDupla* l);
 ListaDupla* separa (ListaDupla* lista, int n);
 
-// Função Main
+// FunÃ§Ã£o Main
 int main (void)
 {
 	ListaDupla* l = NULL;
@@ -47,7 +47,7 @@ int main (void)
 	return 0;
 }
 
-// Desenvolvimento das funções
+// Desenvolvimento das funÃ§Ãµes
 ListaDupla* insere (ListaDupla* l, int v)
 {
 	ListaDupla* novo = (ListaDupla*) malloc(sizeof(ListaDupla));
@@ -106,9 +106,6 @@ ListaDupla* separa (ListaDupla* l, int n)
 		p->prox = NULL;
 		return 	t;
 	}
-	else
-	{
-		return p;
-	}
+	return p;
 }
 
