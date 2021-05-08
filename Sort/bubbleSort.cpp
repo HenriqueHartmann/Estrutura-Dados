@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 int lenVet (int *vet);
 int check (int *vet);
