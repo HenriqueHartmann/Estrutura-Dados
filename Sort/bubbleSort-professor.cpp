@@ -34,7 +34,7 @@ void print_vet (int vetor[], int n)
 {
 	for (int i = 0; i < n; i++)
 	{
-		printf("%d", vetor[i]);
+		printf("%d ", vetor[i]);
 	}
 }
 
