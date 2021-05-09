@@ -2,7 +2,6 @@
 
 int lenVet (int *vet);
 int check (int *vet);
-void swap (int *vet);
 void bubbleSort (int *vet);
 void printVet (int *vet);
 
@@ -35,25 +34,20 @@ int check (int *vet)
 	return correct;
 }
 
-void swap (int *vet)
-{
-	for (int i = 0; i < lenVet(vet) - 1; i++)
-	{
-		if (vet[i] > vet[i+1])
-		{
-			int aux = vet[i];
-			vet[i] = vet[i+1];
-			vet[i+1] = aux;
-		}
-	}
-}
-
 void bubbleSort (int *vet)
 {
 	int correct = check(vet);
 	while (correct != 0)
 	{
-		swap(vet);
+		for (int i = 0; i < lenVet(vet) - 1; i++)
+		{
+			if (vet[i] > vet[i+1])
+			{
+				int aux = vet[i];
+				vet[i] = vet[i+1];
+				vet[i+1] = aux;
+			}
+		}
 		correct = check(vet);
 	}
 }
