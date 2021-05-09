@@ -20,19 +20,14 @@ int lenVet (int *vet)
 
 void selectionSort(int *vet)
 {
-	int k = 0;
-	int size = lenVet(vet);
+	int k = 0, size = lenVet(vet);
 	while (k < size)
 	{
-		int i = k;
-		int smallPos = i;
-		int aux = NULL;
+		int i = k, smallPos = i, aux = NULL;
 		while (i < size)
 		{
 			if (vet[i] < vet[smallPos])
-			{
 				smallPos = i;
-			}
 			i++;
 		}
 		aux = vet[k];
@@ -49,5 +44,4 @@ void printVet (int *vet)
 		printf("%d ", vet[i]);
 	}
 }
-
 
