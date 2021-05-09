@@ -25,14 +25,10 @@ void selectionSort(int *vet)
 	while (k < size)
 	{
 		int i = k;
-		int smallPos = NULL;
+		int smallPos = i;
 		int aux = NULL;
 		while (i < size)
 		{
-			if (smallPos == NULL)
-			{
-				smallPos = i;
-			}
 			if (vet[i] < vet[smallPos])
 			{
 				smallPos = i;
