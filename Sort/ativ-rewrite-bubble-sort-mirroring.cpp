@@ -1,29 +1,23 @@
 #include <stdio.h>
 
-int lenVet (int *vet);
-int check (int *vet);
-void bubbleAndMirror (int *vet1, float *vet2);
-void printVet (int *vet1, float *vet2);
+int check (int *vet, int size);
+void bubbleAndMirror (int *vet1, float *vet2, int size);
+void printVet (int *vet1, float *vet2, int size);
 
 int main()
 {
 	int v1[] = {5, 4, 3, 2};
 	float v2[] = {0.65, 0.23, 1.2, 0.75};
-	bubbleAndMirror(v1, v2);
-	printVet(v1, v2);
+	bubbleAndMirror(v1, v2, 4);
+	printVet(v1, v2, 4);
 	
 	return 0;
 }
 
-int lenVet (int *vet)
-{
-	return sizeof(*vet);
-}
-
-int check (int *vet)
+int check (int *vet, int size)
 {
 	int correct = 0;
-	for (int i = 0; i < lenVet(vet) - 1; i++)
+	for (int i = 0; i < size - 1; i++)
 	{
 		if (vet[i] > vet[i+1])
 		{
@@ -35,12 +29,12 @@ int check (int *vet)
 	return correct;
 }
 
-void bubbleAndMirror (int *vet1, float *vet2)
+void bubbleAndMirror (int *vet1, float *vet2, int size)
 {
-	int correct = check(vet1);
+	int correct = check(vet1, size);
 	while (correct != 0)
 	{
-		for (int i = 0; i < lenVet(vet1) - 1; i++)
+		for (int i = 0; i < size - 1; i++)
 		{
 			if (vet1[i] > vet1[i+1])
 			{
@@ -55,13 +49,13 @@ void bubbleAndMirror (int *vet1, float *vet2)
 				vet2[i+1] = aux2;
 			}
 		}
-		correct = check(vet1);
+		correct = check(vet1, size);
 	}
 }
 
-void printVet (int *vet1, float *vet2)
+void printVet (int *vet1, float *vet2, int size)
 {
-	for (int i = 0; i < lenVet(vet1); i++)
+	for (int i = 0; i < size; i++)
 	{
 		printf("%d = %f\n", vet1[i], vet2[i]);
 	}
