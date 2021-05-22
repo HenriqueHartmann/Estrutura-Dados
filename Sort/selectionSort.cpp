@@ -1,26 +1,20 @@
 #include <stdio.h>
 
-int lenVet (int *vet);
-void selectionSort(int *vet);
-void printVet (int *vet);
+void selectionSort(int *vet, int size);
+void printVet (int *vet, int size);
 
 int main()
 {
 	int vet[] = {5, 4, 2, 3};
-	selectionSort(vet);
-	printVet(vet);
+	selectionSort(vet, 4);
+	printVet(vet, 4);
 	
 	return 0;
 }
 
-int lenVet (int *vet)
+void selectionSort(int *vet, int size)
 {
-	return sizeof(*vet);
-}
-
-void selectionSort(int *vet)
-{
-	int k = 0, size = lenVet(vet);
+	int k = 0;
 	while (k < size)
 	{
 		int i = k, smallPos = i, aux = NULL;
@@ -37,9 +31,9 @@ void selectionSort(int *vet)
 	}
 }
 
-void printVet (int *vet)
+void printVet (int *vet, int size)
 {
-	for (int i = 0; i < lenVet(vet); i++)
+	for (int i = 0; i < size; i++)
 	{
 		printf("%d ", vet[i]);
 	}
