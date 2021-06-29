@@ -1,17 +1,5 @@
 #include <stdio.h>
 
-/*
- 	Digita o numero de posições em n,
- 	então digitamos as posições de largada 
- 	e chegada. Então percorremos de 0 até n
- 	e mais uma vez de 0 até n para encontrarmos
- 	a posição de indices da chegada e criarmos um
- 	vetor. Depois percorremos de 0 até n e de i + 1
- 	até n e comparamos se a posição i do vetor e
- 	maior que que a posição j aplicamos a ordenacao
- 	e adicionamos mais 1 na contagem de mudanças.
-*/
-
 int main()
 {
 	int largada[24], chegada[24];
@@ -49,3 +37,4 @@ int main()
 	
 	return 0;
 }
+
